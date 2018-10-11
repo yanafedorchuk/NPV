@@ -55,3 +55,26 @@ plt.violinplot(npv, positions=None, vert=True, widths=0.5, showmeans=False, show
 plt.boxplot(npv, whis=[1, 99], notch=True, widths=0.3)
 
 plt.show()
+
+
+
+
+numb_iter = 10000
+   
+npv_all = []
+irr_all = [] 
+price1 = np.random.triangular(5.9, 6, 6.1, numb_iter)
+price2 = np.random.triangular(5.95, 6.05, 6.15, numb_iter)
+price3 = np.random.triangular(6, 6.1, 6.2, numb_iter) 
+volume1 = np.random.normal(802, 25, numb_iter) * 100
+volume2 = np.random.normal(967, 30, numb_iter) * 100
+volume3 = np.random.normal(1132, 25, numb_iter) * 100
+cost_coef = npr.triangular(0.5, 0.55, 0.65,numb_iter) 
+oper_coef = npr.normal(0.15, 0.02,numb_iter) 
+npv_all = { np.npv(0.1, np.append(-340000, ( 1 - 0.32)*(1 - oper_coef[i])*(1 - cost_coef[i])*np.array([price1[i]*volume1[i], price2[i]*volume2[i], price3[i]*volume3[i]])))  for i in np.arange(numb_iter)}  
+irr_all = { np.irr(np.append(-340000, ( 1 - 0.32)*(1 - oper_coef[i])*(1 - cost_coef[i])*np.array([price1[i]*volume1[i], price2[i]*volume2[i], price3[i]*volume3[i]])))  for i in np.arange(numb_iter)}  
+    
+
+print(np.mean(npv_all))
+print(np.mean(irr_all))
+
