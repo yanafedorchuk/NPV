@@ -52,3 +52,6 @@ plt.xticks(tick_val,tick_lab)
 plt.show()
 
 plt.violinplot(npv, positions=None, vert=True, widths=0.5, showmeans=False, showextrema=True, showmedians=False, points=100)
+plt.boxplot(npv, whis=[1, 99], notch=True, widths=0.3)
+
+plt.show()
