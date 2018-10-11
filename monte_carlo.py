@@ -78,3 +78,24 @@ irr_all = { np.irr(np.append(-340000, ( 1 - 0.32)*(1 - oper_coef[i])*(1 - cost_c
 print(np.mean(npv_all))
 print(np.mean(irr_all))
 
+import matplotlib.pyplot as plt 
+
+plt.hist(NPV, bins=100, range=[-750000, 1000000], facecolor='NAVY') 
+plt.title('NPV') 
+tick_val = [-750000, -500000, -250000,0, 250000, 500000, 750000,1000000] 
+tick_lab = ['-750K', '-500k', '-250K','0K','250K','500K','750K', '1000K'] 
+plt.xticks(tick_val,tick_lab) 
+plt.text(-830000, 180, r'$\mu=202369,\ \sigma=279395$') 
+plt.axvline(x=np.quantile(NPV, 0.5),linestyle='dashed',color='red') 
+plt.axvline(x=np.quantile(NPV, 0.1),linestyle='dashed',color='orange') 
+plt.axvline(x=np.quantile(NPV, 0.9),linestyle='dashed',color='orange') 
+plt.show() 
+
+
+plt.hist(IRR, bins=100, facecolor='green') 
+plt.title('IRR') 
+plt.text(-0.005, 180, r'$\mu=0.131,\ \sigma=0.043$') 
+plt.axvline(x=np.quantile(IRR, 0.5),linestyle='dashed',color='red') 
+plt.axvline(x=np.quantile(IRR, 0.1),linestyle='dashed',color='orange') 
+plt.axvline(x=np.quantile(IRR, 0.9),linestyle='dashed',color='orange') 
+plt.show()
