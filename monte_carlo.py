@@ -50,3 +50,5 @@ plt.title('NPV')
 plt.text(630000, 800, r'$\mu=100,\ \sigma=15$') 
 plt.xticks(tick_val,tick_lab) 
 plt.show()
+
+plt.violinplot(npv, positions=None, vert=True, widths=0.5, showmeans=False, showextrema=True, showmedians=False, points=100)
