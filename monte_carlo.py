@@ -43,3 +43,10 @@ print(volume)
 print(cash_flow) 
 print(npv)
 print(irr)
+plt.hist(npv, bins=20,range=[-750000, 1000000], facecolor='NAVY', align='mid',histtype='bar') 
+tick_val = [-750000, -500000, -250000,0, 250000, 500000, 750000,1000000] 
+tick_lab = ['-750K', '-500k', '-250K','0K','250K','500K','750K', '1000K'] 
+plt.title('NPV') 
+plt.text(630000, 800, r'$\mu=100,\ \sigma=15$') 
+plt.xticks(tick_val,tick_lab) 
+plt.show()
