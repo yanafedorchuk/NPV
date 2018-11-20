@@ -1,3 +1,3 @@
 # NPV
 
-Estimating NPV with MC method 
+Estimating NPV with Monte Carlo method 
